@@ -6,7 +6,9 @@ This server is used with this [API](https://github.com/Theo-DARONAT/VideoPlayerA
 # Starting the server for the first time ?
 
 Like precised before, this server run with a database PostgreSQL.
+
 So first you have to run a postgres server like: postgres -k /tmp
+
 After that run the following commands to enter in postgres and create the required database:
 psql postgres
 create database youreliefdata
