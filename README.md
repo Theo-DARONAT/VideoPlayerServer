@@ -12,7 +12,7 @@ After that, run the following commands to enter in postgres and create the requi
 
 ```psql postgres```
 
-```create database youreliefdata```
+```create database youreliefdata;```
 
 The name of the database is important, don't change it.
 Now you can leave using \q.
