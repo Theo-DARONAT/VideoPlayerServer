@@ -15,7 +15,7 @@ After that, run the following commands to enter in postgres and create the requi
 ```create database youreliefdata;```
 
 The name of the database is important, don't change it.
-Now you can leave using \q.
+Now you can leave using ```\q```.
 
 Don't close the postgres server, you need it to communicate with the video player server.
 
