@@ -20,10 +20,10 @@ bookmark = "/bookmark";
 //create a client for postgres server
 const { Client } = require('pg');
 const client = new Client({
-  user: '',
+  user: 'postgres',
   host: '',
   database: 'youreliefdata', // name of the database
-  password: '',
+  password: 'postgres',
   port: 5432,
 });
 
