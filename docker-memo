@@ -1,3 +1,6 @@
 How use postgresql with docker:
 download image
 docker run -p 5432:5432 --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d postgres
+
+how to run server: expose specific port
+docker run -p 8000:8000 theo_relief/video_player-server:latest
