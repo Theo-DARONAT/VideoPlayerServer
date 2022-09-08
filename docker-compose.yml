@@ -14,7 +14,7 @@ services:
       context: ./VideoPlayerApp
       dockerfile: ./Dockerfile
     ports:
-      - "4200:4200"
+      - "4200:80"
     links:
       - node_server
     networks:
