@@ -1,0 +1,64 @@
+# WARNING !!!
+# To use docker-compose, you have to move this file in upper directory.
+# your architecture should seems like the following : 
+# [my-prompt]: ls
+# docker-compose.yml  VideoPlayerApp  VideoPlayerServer
+
+
+version: "3"
+
+services:
+  angular_app:
+    container_name: angular_app
+    build:
+      context: ./VideoPlayerApp
+      dockerfile: ./Dockerfile
+    ports:
+      - "4200:4200"
+    links:
+      - node_server
+    networks:
+      - app
+    volumes:
+        - './VideoPlayerApp:/usr/src/app'
+
+
+  node_server:
+    container_name: node_server
+    build:
+      context: ./VideoPlayerServer
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    links:
+      - db
+    networks:
+      - app
+      - database
+    environment:
+      - EXTERNAL_PORT=8000
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - PGDATABASE=youreliefdata
+      - PGHOST=db
+
+  db:
+    container_name: db
+    image: "postgres:latest"
+    ports:
+      - "5432:5432"
+    networks:
+      - database
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=youreliefdata
+    volumes:
+      - pgdata1:/var/lib/postgresql/data
+
+volumes:
+  pgdata1: {}
+
+networks:
+  app:
+  database:
